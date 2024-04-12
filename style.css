@@ -111,6 +111,7 @@ header .container .header_sevice .lang_switch_btn {
   padding-top: 80px;
   padding-bottom: 144px;
   position: relative;
+  height: 690px;
 }
 .value_customers h1 {
   color: #fff;
@@ -120,6 +121,25 @@ header .container .header_sevice .lang_switch_btn {
   font-weight: 700;
   line-height: 56px;
   margin-bottom: 60px;
+}
+
+.value_customers .over_lay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.value_customers .overlay1 {
+  padding-top: 80px;
+  padding-bottom: 144px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
 .scroller {
@@ -155,7 +175,7 @@ header .container .header_sevice .lang_switch_btn {
     var(--_animation-direction, forwards) linear infinite;
 }
 .scroller[data-animated="true"] .scroller__inner.middle {
-  padding-left: 92.5px;
+  padding-left: 94px;
 }
 
 .scroller[data-direction="left"] {
@@ -168,10 +188,10 @@ header .container .header_sevice .lang_switch_btn {
 
 @keyframes scroll {
   0% {
-    transform: translateX(0);
+    transform: translateX(-10%);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-40%);
   }
 }
 .tag-list {
@@ -729,4 +749,375 @@ header .container .header_sevice .lang_switch_btn {
   font-style: normal;
   font-weight: 500;
   line-height: 22px; /* 157.143% */
+}
+
+.domains {
+  height: 700px;
+  padding: 80px 0;
+  background: var(--Background-Section, #f9f9f9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.domains h1 {
+  color: #111827;
+  text-align: center;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 56px; /* 140% */
+  margin-bottom: 60px;
+}
+.domains .list_item {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.domains .list_item .item {
+  position: relative;
+  display: flex;
+  width: 384px;
+  height: 200px;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.38);
+  overflow: hidden;
+}
+.domains .list_item .item .content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  padding: 0 16px;
+}
+.domains .list_item .item .content h2 {
+  margin-top: 22px;
+  color: #fff;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px;
+  margin-bottom: 8px;
+  position: relative;
+  margin-left: 32px;
+  display: inline-block;
+}
+.domains .list_item .item .content h2::after {
+  position: absolute;
+  content: "";
+  width: 24px;
+  height: 24px;
+  top: 3px;
+  left: -31px;
+}
+.domains .list_item .item .content ul {
+  margin-left: 24px;
+}
+.domains .list_item .item .content ul li {
+  color: white;
+  position: relative;
+  color: var(--Color-Subtext-background, #e8e8e8);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px; /* 162.5% */
+  margin-top: 2px;
+}
+.domains .list_item .item .content ul li:hover {
+  cursor: pointer;
+  color: #ef3f23;
+}
+.domains .list_item .item .content ul li:hover::after {
+  background: #ef3f23;
+}
+.domains .list_item .item .content ul li::after {
+  position: absolute;
+  content: "";
+  top: 9px;
+  left: -13px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: white;
+}
+.domains .list_item .item .over_lay_main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+.domains .list_item .item .bg_img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  transition: all 0.3s ease-in-out;
+  background-repeat: no-repeat;
+  filter: blur(0px) saturate(1);
+}
+.domains .list_item .item.first .bg_img {
+  background-image: url("/assets/images/domain/first.png");
+}
+.domains .list_item .item.first h2::after {
+  background-image: url("/assets/images/domain/hat.svg");
+}
+.domains .list_item .item.second .bg_img {
+  background-image: url("/assets/images/domain/Image copy.png");
+}
+.domains .list_item .item.second h2::after {
+  background-image: url("/assets/images/domain/hat_work.svg");
+}
+.domains .list_item .item.third .bg_img {
+  background-image: url("/assets/images/domain/Image copy 2.png");
+}
+.domains .list_item .item.third h2::after {
+  background-image: url("/assets/images/domain/mark.svg");
+}
+.domains .list_item .item.four .bg_img {
+  background-image: url("/assets/images/domain/Picture copy 2.png");
+}
+.domains .list_item .item.four h2::after {
+  background-image: url("/assets/images/domain/main.svg");
+}
+.domains .list_item .item.five .bg_img {
+  background-image: url("/assets/images/domain/Picture copy.png");
+}
+.domains .list_item .item.five h2::after {
+  background-image: url("/assets/images/domain/car.svg");
+}
+.domains .list_item .item.six .bg_img {
+  background-image: url("/assets/images/domain/Picture.png");
+}
+.domains .list_item .item.six h2::after {
+  background-image: url("/assets/images/domain/hand_shack.svg");
+}
+.domains .list_item .item:hover .bg_img {
+  background-position-y: -30px;
+  background-position-x: -86px;
+  background-size: 141%;
+  filter: blur(2px) saturate(1.5);
+}
+.domains .list_item .item:hover .over_lay_main {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.success_project {
+  height: 1068px;
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.success_project h1 {
+  color: var(--Color-Text-color, #111827);
+  font-family: "Noto Sans";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 56px; /* 140% */
+  margin-bottom: 60px;
+}
+.success_project .projects {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  gap: 24px;
+}
+.success_project .projects .item {
+  width: 384px;
+  height: 384px;
+  padding: 24px 16px;
+  gap: 24px;
+  position: relative;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.success_project .projects .item .content {
+  padding: 24px 16px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: end;
+  align-items: start;
+  height: 100%;
+  z-index: 1;
+  transform: translateY(0);
+  transition: all 0.5s ease-out;
+}
+.success_project .projects .item .content h2 {
+  color: var(--Flowkit-White, var(--Color-Text-background, #fff));
+  /* Body/24/Bold */
+  font-family: "Noto Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 133.333% */
+}
+.success_project .projects .item .content p {
+  color: #bebebe;
+  /* Body/16/Medium */
+  font-family: "Noto Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px; /* 162.5% */
+}
+.success_project .projects .item .over_lay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(102, 102, 102, 0) 39.97%,
+    rgba(0, 0, 0, 0.9) 80.34%
+  );
+}
+.success_project .projects .item .bg_img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s linear;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.success_project .projects .item .btn {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  bottom: 24px;
+  right: 16px;
+  z-index: 999;
+  display: flex;
+  padding: 10px 20px;
+  width: calc(100% - 32px);
+  justify-content: center;
+  align-items: center;
+  color: var(--Color-Text-background, #fff);
+  font-family: "Noto Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  border: 1px solid var(--Color-Text-background, #fff);
+  transition: all 0.4s linear;
+}
+.success_project .projects .item .btn img {
+  margin-left: 8px;
+}
+.success_project .projects .item:hover .content {
+  transform: translateY(-75px);
+}
+.success_project .projects .item:hover .bg_img {
+  background-position-y: -71px;
+  background-position-x: -72px;
+  background-size: 141%;
+  filter: blur(4px);
+}
+.success_project .projects .item:hover .over_lay_main {
+  background: rgba(0, 0, 0, 0.6);
+}
+.success_project .projects .item:hover .btn {
+  opacity: 1;
+}
+.success_project .projects .item.first .bg_img {
+  background-image: url("/assets/images/project/board.png");
+}
+.success_project .projects .item.second .bg_img {
+  background-image: url("/assets/images/project/shape.png");
+}
+.success_project .projects .item.third .bg_img {
+  background-image: url("/assets/images/project/mark.png");
+}
+.success_project .projects .item.four .bg_img {
+  background-image: url("/assets/images/project/laptop.png");
+}
+.success_project .projects .item.five .bg_img {
+  background-image: url("/assets/images/project/humen.png");
+}
+.success_project .projects .item.six .bg_img {
+  background-image: url("/assets/images/project/captain.png");
+}
+
+.customers_top {
+  height: 265px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.customers_top .over_lay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(92deg, #a62d1a 0%, #ef3f23 70%);
+}
+.customers_top .bg_img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/images/project/Illus.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.3;
+}
+.customers_top .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+}
+.customers_top .content p {
+  margin-bottom: 32px;
+  text-align: center;
+}
+.customers_top .content h1 {
+  color: var(--Flowkit-White, var(--Color-Text-background, #fff));
+  text-align: center;
+  /* Title/32/Bold */
+  font-family: "Noto Sans";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 44px; /* 137.5% */
+}
+.customers_top .content .btn {
+  display: flex;
+  width: 200px;
+  height: 48px;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: var(--Color-Main-color, #ef3f23);
+  background-color: white;
+  /* Body/18/Semibold */
+  font-family: "Noto Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 155.556% */
+  cursor: pointer;
 }
