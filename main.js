@@ -42,6 +42,9 @@ $(document).ready(function () {
   }
 
   $(document).ready(function () {
+    setTimeout(() => {
+      $("#hero_two").click()
+    }, 3000);
     $("#wrap_dot li").on("click", function () {
       $("#wrap_dot li").removeClass("active");
 
@@ -52,14 +55,25 @@ $(document).ready(function () {
       $(".hero video").css("opacity", 1);
       $(".hero .overlay_video").css("opacity", 1);
       $(".hero .hero_video_text").css("opacity", 1);
-
     });
 
     $("#hero_one").on("click", function () {
       $(".hero video").css("opacity", 0);
       $(".hero .overlay_video").css("opacity", 0);
       $(".hero .hero_video_text").css("opacity", 0);
-
     });
+  });
+
+  $(".multiple-items").slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots: true,
+  });
+
+  $(".customer-items").slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    dots: true,
   });
 });
