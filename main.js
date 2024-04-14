@@ -55,12 +55,15 @@ $(document).ready(function () {
       $(".hero video").css("opacity", 1);
       $(".hero .overlay_video").css("opacity", 1);
       $(".hero .hero_video_text").css("opacity", 1);
+      $(".hero .hero_desription").css("pointer-events", "none");
     });
 
     $("#hero_one").on("click", function () {
       $(".hero video").css("opacity", 0);
       $(".hero .overlay_video").css("opacity", 0);
       $(".hero .hero_video_text").css("opacity", 0);
+      $(".hero .hero_desription").css("pointer-events", "all");
+
     });
   });
 
@@ -76,4 +79,37 @@ $(document).ready(function () {
     slidesToScroll: 1,
     dots: true,
   });
+
+  $("#download_profile_btn").on("click", () => {
+    onShowPopup("#download_modal");
+  });
+
+  $("#consult_first_btn").on("click", () => {
+    onShowPopup("#consult_modal");
+  });
+
+  $(".multiple-items .item .see_more_btn").on("click", () => {
+    onShowPopup("#post_modal");
+  });
+
+  $("#over_lay").on("click", () => {
+    onHidePopup("#download_modal");
+    onHidePopup("#consult_modal");
+    onHidePopup("#post_modal");
+  });
+
+  $(".close_modal_btn").on("click", () => {
+    onHidePopup("#download_modal");
+  });
+
+  function onShowPopup(modalName) {
+    $("body").addClass("modal_Open");
+    $("#over_lay").addClass("show");
+    $(modalName).addClass("show");
+  }
+  function onHidePopup(modalName) {
+    $("body").removeClass("modal_Open");
+    $("#over_lay").removeClass("show");
+    $(modalName).removeClass("show");
+  }
 });
