@@ -5,6 +5,22 @@ $(document).ready(function () {
     addAnimation();
   }
 
+  var lastScrollTop = 0;
+
+  $(window).on("scroll", function () {
+    var st = $(this).scrollTop();
+    if (st > lastScrollTop) {
+      // Người dùng scroll xuống
+      $(".header_sp").css("transform", "translateY(-100%)");
+      $("header").css("transform", "translateY(-100%)");
+    } else {
+      // Người dùng scroll lên
+      $(".header_sp").css("transform", "translateY(0)");
+      $("header").css("transform", "translateY(0)");
+    }
+    lastScrollTop = st;
+  });
+
   // list touch
 
   $(".blog").on("touchstart", function () {
@@ -119,8 +135,8 @@ $(document).ready(function () {
       slidesToShow: 1,
       slidesToScroll: 1,
       dots: true,
-      autoplay: true,
-      autoplaySpeed: 5000,
+      // autoplay: true,
+      // autoplaySpeed: 5000,
       responsive: [
         {
           breakpoint: 1000,
@@ -170,18 +186,23 @@ $(document).ready(function () {
   $(".multiple-items .item .see_more_btn.first").on("click", () => {
     onShowPopup(".post_modal.first");
     $("#over_lay_post").addClass("show");
+    $("#over_lay_post").addClass("show");
   });
 
   $(".multiple-items .item .see_more_btn.second").on("click", () => {
     onShowPopup(".post_modal.second");
+    $("#over_lay_post").addClass("show");
   });
 
   $(".multiple-items .item .see_more_btn.third").on("click", () => {
     onShowPopup(".post_modal.third");
+    $("#over_lay_post").addClass("show");
   });
 
   $(".multiple-items .item .see_more_btn.four").on("click", () => {
     onShowPopup(".post_modal.four");
+
+    $("#over_lay_post").addClass("show");
   });
 
   // open the post on sp
@@ -233,6 +254,7 @@ $(document).ready(function () {
   $(".close_modal_btn").on("click", () => {
     onHidePopup("#download_modal");
     onHidePopup("#consult_modal");
+    $("#over_lay_post").click()
   });
   $(".head_sp_back").on("click", () => {
     onHidePopup("#download_modal");
