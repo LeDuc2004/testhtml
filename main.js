@@ -44,7 +44,15 @@ $(document).ready(function () {
   $(document).ready(function () {
     setTimeout(() => {
       $("#hero_two").click();
-    }, 3000);
+    }, 5000);
+    setInterval(() => {
+      $("#hero_one").click();
+
+      // Sau 5 giây, click nút 2
+      setTimeout(function () {
+        $("#hero_two").click();
+      }, 5000);
+    }, 10000);
     $("#wrap_dot li").on("click", function () {
       $("#wrap_dot li").removeClass("active");
 
@@ -55,71 +63,143 @@ $(document).ready(function () {
       $(".hero video").css("opacity", 1);
       $(".hero .overlay_video").css("opacity", 1);
       $(".hero .hero_video_text").css("opacity", 1);
-      $(".hero .hero_desription").css("pointer-events", "none");
+      if ($(window).width() > 1000) {
+        $(".hero .hero_desription ").css("pointer-events", "none");
+        $(".hero .hero_desription").css("opacity", 0);
+      }
+      $(".hero .scroller_hero").css("opacity", 0);
+
+      $(".hero .hero_desription .wrap_btn").addClass("show");
     });
 
     $("#hero_one").on("click", function () {
       $(".hero video").css("opacity", 0);
       $(".hero .overlay_video").css("opacity", 0);
       $(".hero .hero_video_text").css("opacity", 0);
-      $(".hero .hero_desription").css("pointer-events", "all");
+      $(".hero .scroller_hero").css("opacity", 1);
+      $(".hero").css("pointer-events", "all");
+      if ($(window).width() > 1000) {
+        $(".hero .hero_desription ").css("pointer-events", "all");
+        $(".hero .hero_desription").css("opacity", 1);
+      }
+      $(".hero .hero_desription .wrap_btn").removeClass("show");
     });
   });
 
-  $(".multiple-items").slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    dots: true,
-    responsive: [
-      {
-        breakpoint: 1000,
-        settings: {
-          slidesToShow: 1.15,
-          slidesToScroll: 1,
-          dots: true,
-          infinite: false,
+  function addSlick() {
+    $(".multiple-items").slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: true,
+      autoplay: true,
+      autoplaySpeed: 5000,
+      responsive: [
+        {
+          breakpoint: 1000,
+          settings: {
+            slidesToShow: 1.15,
+            slidesToScroll: 1,
+            dots: true,
+            infinite: false,
+          },
         },
-      },
-    ],
-  });
+      ],
+    });
 
-  $(".customer-items").slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    dots: true,
-    responsive: [
-      {
-        breakpoint: 1000,
-        settings: {
-          slidesToShow: 1.18,
-          slidesToScroll: 1,
-          dots: true,
-          infinite: false,
+    $(".customer-items").slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      dots: true,
+      autoplay: true,
+      autoplaySpeed: 5000,
+      responsive: [
+        {
+          breakpoint: 1000,
+          settings: {
+            slidesToShow: 1.18,
+            slidesToScroll: 1,
+            dots: true,
+            infinite: false,
+          },
         },
-      },
-    ],
-  });
+      ],
+    });
+  }
+  addSlick();
 
   $("#download_profile_btn").on("click", () => {
-    $("html, body").animate({ scrollTop: 0 }, "slow", () => {
+    $("html, body").animate({ scrollTop: 0 }, "fast", () => {
       onShowPopup("#download_modal");
     });
   });
 
   $("#consult_first_btn").on("click", () => {
-    $("html, body").animate({ scrollTop: 0 }, "slow", () => {
+    $("html, body").animate({ scrollTop: 0 }, "fast", () => {
       onShowPopup("#consult_modal");
     });
   });
 
-  $(".multiple-items .item .see_more_btn").on("click", () => {
-    onShowPopup("#post_modal");
+  $(".multiple-items .item .see_more_btn.first").on("click", () => {
+    onShowPopup(".post_modal.first");
+    $("#over_lay_post").addClass("show");
+  });
+
+  $(".multiple-items .item .see_more_btn.second").on("click", () => {
+    onShowPopup(".post_modal.second");
+  });
+
+  $(".multiple-items .item .see_more_btn.third").on("click", () => {
+    onShowPopup(".post_modal.third");
+  });
+
+  $(".multiple-items .item .see_more_btn.four").on("click", () => {
+    onShowPopup(".post_modal.four");
+  });
+
+  // open the post on sp
+
+  $(".customers_voices .multiple-items .item.first").on("click", () => {
+    if ($(window).width() < 1000) {
+        onShowPopup(".post_modal.first");
+        $("#over_lay_post").addClass("show");
+    }
+  });
+
+  $(".customers_voices .multiple-items .item.second").on("click", () => {
+    if ($(window).width() < 1000) {
+        onShowPopup(".post_modal.second");
+        $("#over_lay_post").addClass("show");
+    }
+  });
+
+  $(".customers_voices .multiple-items .item.third").on("click", () => {
+    if ($(window).width() < 1000) {
+        onShowPopup(".post_modal.third");
+        $("#over_lay_post").addClass("show");
+    }
+  });
+
+  $(".customers_voices .multiple-items .item.four").on("click", () => {
+    if ($(window).width() < 1000) {
+        onShowPopup(".post_modal.four");
+        $("#over_lay_post").addClass("show");
+    }
   });
 
   $("#over_lay").on("click", () => {
     onHidePopup("#download_modal");
     onHidePopup("#consult_modal");
-    onHidePopup("#post_modal");
+    onHidePopup(".post_modal");
+    $("#over_lay_post").removeClass("show");
+    $("#over_lay").removeClass("show");
+  });
+
+  $("#over_lay_post").on("click", () => {
+    onHidePopup("#download_modal");
+    onHidePopup("#consult_modal");
+    onHidePopup(".post_modal");
+    $("#over_lay").removeClass("show");
+    $("#over_lay_post").removeClass("show");
   });
 
   $(".close_modal_btn").on("click", () => {
@@ -179,50 +259,50 @@ $(document).ready(function () {
     $(modalName).removeClass("show");
   }
 
-        // Khởi tạo Odometer
-        const odometer1 = new Odometer({
-          el: document.querySelector("#our_customers"),
-          value: 10,
-        });
-        const odometer2 = new Odometer({
-          el: document.querySelector("#successfull_projects"),
-          value: 10,
-        });
-        const odometer3 = new Odometer({
-          el: document.querySelector("#offices"),
-          value: 1,
-        });
-        const odometer4 = new Odometer({
-          el: document.querySelector("#ict_vn"),
-          value: 1,
-        });
-        const odometer5 = new Odometer({
-          el: document.querySelector("#customer_sati"),
-          value: 10,
-        });
-        const odometer6 = new Odometer({
-          el: document.querySelector("#customer"),
-          value: 10,
-        });
-  
-        window.addEventListener("scroll", function () {
-          var element = document.getElementById("myOdometer");
-          var position = element.getBoundingClientRect();
-          var windowHeight = window.innerHeight;
-  
-          if (position.top < windowHeight * 0.8) {
-            activateOdometer();
-            window.removeEventListener("scroll", arguments.callee);
-          }
-        });
-  
-        // Hàm kích hoạt odometer
-        function activateOdometer() {
-          odometer1.update(60);
-          odometer2.update(100);
-          odometer3.update(2);
-          odometer4.update(10);
-          odometer5.update(95);
-          odometer6.update(91);
-        }
+  // Khởi tạo Odometer
+  const odometer1 = new Odometer({
+    el: document.querySelector("#our_customers"),
+    value: 10,
+  });
+  const odometer2 = new Odometer({
+    el: document.querySelector("#successfull_projects"),
+    value: 10,
+  });
+  const odometer3 = new Odometer({
+    el: document.querySelector("#offices"),
+    value: 1,
+  });
+  const odometer4 = new Odometer({
+    el: document.querySelector("#ict_vn"),
+    value: 1,
+  });
+  const odometer5 = new Odometer({
+    el: document.querySelector("#customer_sati"),
+    value: 10,
+  });
+  const odometer6 = new Odometer({
+    el: document.querySelector("#customer"),
+    value: 10,
+  });
+
+  window.addEventListener("scroll", function () {
+    var element = document.getElementById("myOdometer");
+    var position = element.getBoundingClientRect();
+    var windowHeight = window.innerHeight;
+
+    if (position.top < windowHeight * 0.8) {
+      activateOdometer();
+      window.removeEventListener("scroll", arguments.callee);
+    }
+  });
+
+  // Hàm kích hoạt odometer
+  function activateOdometer() {
+    odometer1.update(60);
+    odometer2.update(100);
+    odometer3.update(2);
+    odometer4.update(10);
+    odometer5.update(95);
+    odometer6.update(91);
+  }
 });
