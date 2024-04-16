@@ -1320,9 +1320,7 @@ header .container .header_sevice .lang_switch_btn:hover .dropdown-content {
     height: 450px;
   }
 }
-.service_slution .blogs .blog:hover .over_lay,
-.service_slution .blogs .blog:active .over_lay,
-.service_slution .blogs .blog:visited .over_lay {
+.service_slution .blogs .blog:hover .over_lay {
   transition: all 0.4s linear;
   background: linear-gradient(
     180deg,
@@ -1330,32 +1328,45 @@ header .container .header_sevice .lang_switch_btn:hover .dropdown-content {
     rgba(255, 255, 255, 0) 79.68%
   );
 }
-.service_slution .blogs .blog:hover .blog_bg,
-.service_slution .blogs .blog:active .blog_bg,
-.service_slution .blogs .blog:visited .blog_bg {
+
+.service_slution .blogs .blog.hover_active .over_lay {
+  transition: all 0.4s linear;
+  background: linear-gradient(180deg, black 20.35%, rgba(255, 255, 255, 0) 79.68%);
+}
+.service_slution .blogs .blog.hover_active .blog_bg {
   background-position-y: -130px;
   background-position-x: -70px;
   background-size: 145%;
   filter: blur(3px);
 }
-.service_slution .blogs .blog:hover .content,
-.service_slution .blogs .blog:active .content,
-.service_slution .blogs .blog:visited .content {
+.service_slution .blogs .blog.hover_active .content {
   color: white;
 }
-.service_slution .blogs .blog:hover .content h2,
-.service_slution .blogs .blog:active .content h2,
-.service_slution .blogs .blog:visited .content h2 {
+.service_slution .blogs .blog.hover_active .content h2 {
   color: white;
 }
-.service_slution .blogs .blog:hover .content ul li,
-.service_slution .blogs .blog:active .content ul li,
-.service_slution .blogs .blog:visited .content ul li {
+.service_slution .blogs .blog.hover_active .content ul li {
   color: white;
 }
-.service_slution .blogs .blog:hover .content ul li::after,
-.service_slution .blogs .blog:active .content ul li::after,
-.service_slution .blogs .blog:visited .content ul li::after {
+.service_slution .blogs .blog.hover_active .content ul li::after {
+  background: white;
+}
+.service_slution .blogs .blog:hover .blog_bg {
+  background-position-y: -130px;
+  background-position-x: -70px;
+  background-size: 145%;
+  filter: blur(3px);
+}
+.service_slution .blogs .blog:hover .content {
+  color: white;
+}
+.service_slution .blogs .blog:hover .content h2 {
+  color: white;
+}
+.service_slution .blogs .blog:hover .content ul li {
+  color: white;
+}
+.service_slution .blogs .blog:hover .content ul li::after {
   background: white;
 }
 .service_slution .blogs .blog.first .blog_bg {
@@ -2544,6 +2555,36 @@ header .container .header_sevice .lang_switch_btn:hover .dropdown-content {
   max-height: 216px;
   overflow: hidden;
 }
+
+.success_project .projects .item:hover .content, .success_project .projects .item.hover_active .content {
+  transform: translateY(-75px);
+}
+.success_project .projects .item:hover .bg_img, .success_project .projects .item.hover_active .bg_img {
+  background-position-y: -71px;
+  background-position-x: -72px;
+  background-size: 141%;
+  filter: blur(4px);
+}
+.success_project .projects .item:hover .over_lay_main, .success_project .projects .item.hover_active .over_lay_main {
+  background: rgba(0, 0, 0, 0.6);
+}
+.success_project .projects .item:hover .btn, .success_project .projects .item.hover_active .btn {
+  opacity: 1;
+}
+
+.domains .list_item .item:hover .bg_img, .domains .list_item .item.hover_active .bg_img {
+  background-position-y: -30px;
+  background-position-x: -86px;
+  background-size: 141%;
+  filter: blur(2px) saturate(1.5);
+}
+.domains .list_item .item:hover .over_lay_main, .domains .list_item .item.hover_active .over_lay_main {
+  background: rgba(0, 0, 0, 0.6);
+}
+.customer_success_stories .item.hover_active .bg_img {
+  transform: scale(1.2) translate(-12px, 12px);
+  filter: blur(2px) saturate(1.5);
+}
 .customer_success_stories .item:hover .bg_img {
   transform: scale(1.2) translate(-12px, 12px);
   filter: blur(2px) saturate(1.5);
@@ -3020,6 +3061,8 @@ transform: scale(1.3);
   line-height: 28px; /* 155.556% */
   margin-top: 18px;
 }
+
+
 @media screen and (max-width: 1000px) {
   .latest_news .warrper .content_fa .left .see_more_btn {
     position: absolute;

@@ -5,6 +5,36 @@ $(document).ready(function () {
     addAnimation();
   }
 
+  // list touch
+
+  $(".blog").on("touchstart", function () {
+    $(this).addClass("hover_active");
+  });
+  $(".blog").on("touchend", function () {
+    $(this).removeClass("hover_active");
+  });
+
+  $(".customer_success_stories .item").on("touchstart", function () {
+    $(this).addClass("hover_active");
+  });
+  $(".customer_success_stories .item").on("touchend", function () {
+    $(this).removeClass("hover_active");
+  });
+
+  $(".success_project .projects .item").on("touchstart", function () {
+    $(this).addClass("hover_active");
+  });
+  $(".success_project .projects .item").on("touchend", function () {
+    $(this).removeClass("hover_active");
+  });
+
+  $(".domains .list_item .item").on("touchstart", function () {
+    $(this).addClass("hover_active");
+  });
+  $(".domains .list_item .item").on("touchend", function () {
+    $(this).removeClass("hover_active");
+  });
+
   function addAnimation() {
     $(".scroller").each(function () {
       $(this).attr("data-animated", true);
@@ -41,49 +71,47 @@ $(document).ready(function () {
     });
   }
 
-  $(document).ready(function () {
-    setTimeout(() => {
+  setTimeout(() => {
+    $("#hero_two").click();
+  }, 5000);
+  setInterval(() => {
+    $("#hero_one").click();
+
+    // Sau 5 giây, click nút 2
+    setTimeout(function () {
       $("#hero_two").click();
     }, 5000);
-    setInterval(() => {
-      $("#hero_one").click();
+  }, 10000);
+  $("#wrap_dot li").on("click", function () {
+    $("#wrap_dot li").removeClass("active");
 
-      // Sau 5 giây, click nút 2
-      setTimeout(function () {
-        $("#hero_two").click();
-      }, 5000);
-    }, 10000);
-    $("#wrap_dot li").on("click", function () {
-      $("#wrap_dot li").removeClass("active");
+    $(this).addClass("active");
+  });
 
-      $(this).addClass("active");
-    });
+  $("#hero_two").on("click", function () {
+    $(".hero video").css("opacity", 1);
+    $(".hero .overlay_video").css("opacity", 1);
+    $(".hero .hero_video_text").css("opacity", 1);
+    if ($(window).width() > 1000) {
+      $(".hero .hero_desription ").css("pointer-events", "none");
+      $(".hero .hero_desription").css("opacity", 0);
+    }
+    $(".hero .scroller_hero").css("opacity", 0);
 
-    $("#hero_two").on("click", function () {
-      $(".hero video").css("opacity", 1);
-      $(".hero .overlay_video").css("opacity", 1);
-      $(".hero .hero_video_text").css("opacity", 1);
-      if ($(window).width() > 1000) {
-        $(".hero .hero_desription ").css("pointer-events", "none");
-        $(".hero .hero_desription").css("opacity", 0);
-      }
-      $(".hero .scroller_hero").css("opacity", 0);
+    $(".hero .hero_desription .wrap_btn").addClass("show");
+  });
 
-      $(".hero .hero_desription .wrap_btn").addClass("show");
-    });
-
-    $("#hero_one").on("click", function () {
-      $(".hero video").css("opacity", 0);
-      $(".hero .overlay_video").css("opacity", 0);
-      $(".hero .hero_video_text").css("opacity", 0);
-      $(".hero .scroller_hero").css("opacity", 1);
-      $(".hero").css("pointer-events", "all");
-      if ($(window).width() > 1000) {
-        $(".hero .hero_desription ").css("pointer-events", "all");
-        $(".hero .hero_desription").css("opacity", 1);
-      }
-      $(".hero .hero_desription .wrap_btn").removeClass("show");
-    });
+  $("#hero_one").on("click", function () {
+    $(".hero video").css("opacity", 0);
+    $(".hero .overlay_video").css("opacity", 0);
+    $(".hero .hero_video_text").css("opacity", 0);
+    $(".hero .scroller_hero").css("opacity", 1);
+    $(".hero").css("pointer-events", "all");
+    if ($(window).width() > 1000) {
+      $(".hero .hero_desription ").css("pointer-events", "all");
+      $(".hero .hero_desription").css("opacity", 1);
+    }
+    $(".hero .hero_desription .wrap_btn").removeClass("show");
   });
 
   function addSlick() {
@@ -160,29 +188,29 @@ $(document).ready(function () {
 
   $(".customers_voices .multiple-items .item.first").on("click", () => {
     if ($(window).width() < 1000) {
-        onShowPopup(".post_modal.first");
-        $("#over_lay_post").addClass("show");
+      onShowPopup(".post_modal.first");
+      $("#over_lay_post").addClass("show");
     }
   });
 
   $(".customers_voices .multiple-items .item.second").on("click", () => {
     if ($(window).width() < 1000) {
-        onShowPopup(".post_modal.second");
-        $("#over_lay_post").addClass("show");
+      onShowPopup(".post_modal.second");
+      $("#over_lay_post").addClass("show");
     }
   });
 
   $(".customers_voices .multiple-items .item.third").on("click", () => {
     if ($(window).width() < 1000) {
-        onShowPopup(".post_modal.third");
-        $("#over_lay_post").addClass("show");
+      onShowPopup(".post_modal.third");
+      $("#over_lay_post").addClass("show");
     }
   });
 
   $(".customers_voices .multiple-items .item.four").on("click", () => {
     if ($(window).width() < 1000) {
-        onShowPopup(".post_modal.four");
-        $("#over_lay_post").addClass("show");
+      onShowPopup(".post_modal.four");
+      $("#over_lay_post").addClass("show");
     }
   });
 
