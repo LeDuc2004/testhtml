@@ -5,23 +5,38 @@ $(document).ready(function () {
     addAnimation();
   }
 
-  var lastScrollTop = 0;
+  var lastScrollTop = 100;
 
   $(window).on("scroll", function () {
     var st = $(this).scrollTop();
+    if ($("dropdown-content-head").hasClass('show')) return
     if (st > lastScrollTop) {
-      // Người dùng scroll xuống
-      $(".header_sp").css("transform", "translateY(-100%)");
-      $("header").css("transform", "translateY(-100%)");
+      $(".header_sp").addClass("show");
+      $("header").addClass("show");
     } else {
       // Người dùng scroll lên
-      $(".header_sp").css("transform", "translateY(0)");
-      $("header").css("transform", "translateY(0)");
+      $(".header_sp").removeClass("show");
+      $("header").removeClass("show");
     }
-    lastScrollTop = st;
+    if (st > lastScrollTop && st) {
+      lastScrollTop = st;
+    }
   });
 
   // list touch
+
+  $(".latest_news .warrper .content_fa .right .item .content h2").on(
+    "touchstart",
+    function () {
+      $(this).addClass("hover_active");
+    }
+  );
+  $(".latest_news .warrper .content_fa .right .item .content h2").on(
+    "touchend",
+    function () {
+      $(this).removeClass("hover_active");
+    }
+  );
 
   $(".blog").on("touchstart", function () {
     $(this).addClass("hover_active");
@@ -90,14 +105,15 @@ $(document).ready(function () {
   setTimeout(() => {
     $("#hero_two").click();
   }, 5000);
+
   setInterval(() => {
     $("#hero_one").click();
 
-    // Sau 5 giây, click nút 2
     setTimeout(function () {
       $("#hero_two").click();
     }, 5000);
   }, 10000);
+
   $("#wrap_dot li").on("click", function () {
     $("#wrap_dot li").removeClass("active");
 
@@ -135,8 +151,9 @@ $(document).ready(function () {
       slidesToShow: 1,
       slidesToScroll: 1,
       dots: true,
-      // autoplay: true,
-      // autoplaySpeed: 5000,
+      centerMode: true,
+      autoplay: true,
+      autoplaySpeed: 5000,
       responsive: [
         {
           breakpoint: 1000,
@@ -145,6 +162,7 @@ $(document).ready(function () {
             slidesToScroll: 1,
             dots: true,
             infinite: false,
+            centerMode: false,
           },
         },
       ],
@@ -254,7 +272,7 @@ $(document).ready(function () {
   $(".close_modal_btn").on("click", () => {
     onHidePopup("#download_modal");
     onHidePopup("#consult_modal");
-    $("#over_lay_post").click()
+    $("#over_lay_post").click();
   });
   $(".head_sp_back").on("click", () => {
     onHidePopup("#download_modal");
@@ -270,11 +288,13 @@ $(document).ready(function () {
       $this.find(".close").hide();
       $this.find(".burger").show();
       $(".dropdown-content-head").removeClass("show");
+      $("body").css("overflow-y", "auto");
     } else {
       $this.addClass("show");
       $this.find(".close").show();
       $this.find(".burger").hide();
       $(".dropdown-content-head").addClass("show");
+      $("body").css("overflow-y", "hidden");
     }
   });
 
@@ -283,6 +303,20 @@ $(document).ready(function () {
     if (!activePanel.length) return;
     toggleAccordion(activePanel);
   });
+
+  $(".dropdown-content-head .accordion .accordion-content li").on(
+    "click",
+    (e) => {
+      e.stopPropagation();
+    }
+  );
+
+  $(".dropdown-content-head .accordionm .accordion-contentm li").on(
+    "click",
+    (e) => {
+      e.stopPropagation();
+    }
+  );
 
   function toggleAccordion(panelToActivate) {
     const activeButton = panelToActivate.find(".accordion-trigger");
@@ -295,6 +329,26 @@ $(document).ready(function () {
     } else {
       activeButton.attr("aria-expanded", true);
       activePanel.attr("aria-hidden", false);
+    }
+  }
+
+  $(".accordionm").on("click", function (e) {
+    const activePanel = $(e.target).closest(".accordion-panelm");
+    if (!activePanel.length) return;
+    toggleAccordionm(activePanel);
+  });
+
+  function toggleAccordionm(panelToActivate) {
+    const activeButton = panelToActivate.find(".accordion-triggerm");
+    const activePanel = panelToActivate.find(".accordion-contentm");
+    const activePanelIsOpened = activeButton.attr("aria-expandedm");
+
+    if (activePanelIsOpened === "true") {
+      activeButton.attr("aria-expandedm", false);
+      activePanel.attr("aria-hiddenm", true);
+    } else {
+      activeButton.attr("aria-expandedm", true);
+      activePanel.attr("aria-hiddenm", false);
     }
   }
 
