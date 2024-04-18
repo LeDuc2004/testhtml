@@ -154,18 +154,6 @@ $(document).ready(function () {
       centerMode: true,
       autoplay: true,
       autoplaySpeed: 5000,
-      responsive: [
-        {
-          breakpoint: 1000,
-          settings: {
-            slidesToShow: 1.15,
-            slidesToScroll: 1,
-            dots: true,
-            infinite: false,
-            centerMode: false,
-          },
-        },
-      ],
     });
 
     $(".customer-items").slick({
@@ -224,34 +212,6 @@ $(document).ready(function () {
   });
 
   // open the post on sp
-
-  $(".customers_voices .multiple-items .item.first").on("click", () => {
-    if ($(window).width() < 1000) {
-      onShowPopup(".post_modal.first");
-      $("#over_lay_post").addClass("show");
-    }
-  });
-
-  $(".customers_voices .multiple-items .item.second").on("click", () => {
-    if ($(window).width() < 1000) {
-      onShowPopup(".post_modal.second");
-      $("#over_lay_post").addClass("show");
-    }
-  });
-
-  $(".customers_voices .multiple-items .item.third").on("click", () => {
-    if ($(window).width() < 1000) {
-      onShowPopup(".post_modal.third");
-      $("#over_lay_post").addClass("show");
-    }
-  });
-
-  $(".customers_voices .multiple-items .item.four").on("click", () => {
-    if ($(window).width() < 1000) {
-      onShowPopup(".post_modal.four");
-      $("#over_lay_post").addClass("show");
-    }
-  });
 
   $("#over_lay").on("click", () => {
     onHidePopup("#download_modal");
