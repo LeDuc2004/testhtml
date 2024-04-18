@@ -18,7 +18,7 @@ $(document).ready(function () {
       $(".header_sp").removeClass("show");
       $("header").removeClass("show");
     }
-    if (st > lastScrollTop && st) {
+    if (st > 100) {
       lastScrollTop = st;
     }
   });
@@ -104,15 +104,15 @@ $(document).ready(function () {
 
   setTimeout(() => {
     $("#hero_two").click();
-  }, 5000);
+  }, 6000);
 
   setInterval(() => {
     $("#hero_one").click();
 
     setTimeout(function () {
       $("#hero_two").click();
-    }, 5000);
-  }, 10000);
+    }, 6000);
+  }, 12000);
 
   $("#wrap_dot li").on("click", function () {
     $("#wrap_dot li").removeClass("active");

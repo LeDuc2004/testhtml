@@ -488,6 +488,12 @@ header .container .header_sevice .lang_switch_btn:hover .dropdown-content {
   line-height: 26px; /* 162.5% */
   cursor: pointer;
 }
+
+.dropdown-content-head .accordion .accordion-content .wrap {
+display: flex;
+flex-direction: column;
+gap: 16px;
+}
 .dropdown-content-head .accordion .accordion-content li img {
   margin-right: 8px;
   filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
@@ -525,7 +531,7 @@ header .container .header_sevice .lang_switch_btn:hover .dropdown-content {
   font-weight: 700;
   line-height: 28px;
   position: relative;
-  margin-bottom: 18px;
+  margin-bottom: 13px;
 }
 .dropdown-content-head .accordionm .accordion-triggerm::after {
   position: absolute;
@@ -592,6 +598,7 @@ header .container .header_sevice .lang_switch_btn:hover .dropdown-content {
   height: 1px;
   background: var(--Grayscale-400, #ced4da);
   margin-top: 24px;
+  min-height: 1px;
 }
 .dropdown-content-head.show {
   display: flex;
@@ -991,6 +998,7 @@ header .container .header_sevice .lang_switch_btn:hover .dropdown-content {
   gap: 24px;
   position: relative;
   width: 100%;
+  height: max-content;
 }
 
 @media screen and (max-width: 1000px) {
@@ -1003,6 +1011,7 @@ header .container .header_sevice .lang_switch_btn:hover .dropdown-content {
     top: 0;
     left: 0;
     width: 100% !important;
+    max-width: 100% !important;
     z-index: 2;
     height: 100%;
   }
@@ -1026,12 +1035,13 @@ header .container .header_sevice .lang_switch_btn:hover .dropdown-content {
     justify-content: center;
     align-items: center;
     width: 100%;
+    max-width: calc((100% - 8px) / 2) !important;
   }
   .hero_desription .wrap_btn .download_btn {
     position: absolute;
     top: 0;
     left: 0;
-    width: 167px;
+    width: 100%;
     border: 1px solid #ef3f23;
     transition: all 0.4s linear;
   }
@@ -1048,6 +1058,7 @@ header .container .header_sevice .lang_switch_btn:hover .dropdown-content {
   color: #ef3f23;
   border: 1px solid #ef3f23;
   max-width: 167px;
+  height: 100%;
 }
 .hero .gallery {
   --size: 95px;
@@ -5333,8 +5344,8 @@ footer .bottom .group_text .line_group {
 @media screen and (max-width: 1000px) {
   .post_modal .content .wrapp_text {
     width: 100%;
-    max-height: 50vh;
-    max-height: 50dvh;
+    max-height: 46vh;
+    max-height: 46dvh;
     overflow: scroll;
     display: block;
     margin-bottom: 23px;
