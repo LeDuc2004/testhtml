@@ -16,6 +16,12 @@ a {
 body {
   width: 100vw;
   overflow-x: hidden;
+  padding-top: 96px;
+}
+@media screen and (max-width: 1000px) {
+  body {
+    padding-top: 112px;
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -34,6 +40,7 @@ body.modal_Open {
     height: 100vh;
     height: 100dvh;
     margin-right: 0;
+    padding-top: 112px;
   }
 }
 
@@ -490,9 +497,9 @@ header .container .header_sevice .lang_switch_btn:hover .dropdown-content {
 }
 
 .dropdown-content-head .accordion .accordion-content .wrap {
-display: flex;
-flex-direction: column;
-gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 .dropdown-content-head .accordion .accordion-content li img {
   margin-right: 8px;
@@ -759,14 +766,17 @@ gap: 16px;
   background-position-x: center;
   padding: 0 20px;
   position: relative;
-  margin-top: 96px;
+  margin-top: 0px;
+}
+.hero * {
+  transition: all 0.4s linear;
 }
 @media screen and (max-width: 1000px) {
   .hero {
     flex-direction: column-reverse;
     padding: 0;
     padding-bottom: 60px;
-    margin-top: 112px;
+    margin-top: 0px;
     background-size: auto;
   }
 }
@@ -855,7 +865,7 @@ gap: 16px;
 }
 @media screen and (max-width: 1000px) {
   #wrap_dot {
-    bottom: 22px;
+    bottom: 24px;
   }
   .wrapper_video {
     position: fixed;
@@ -878,7 +888,7 @@ gap: 16px;
   }
   .hero .hero_video_text {
     top: unset;
-    bottom: 50px;
+    bottom: 80px;
     left: 0;
     width: 100%;
     padding: 0 24px;
@@ -990,7 +1000,6 @@ gap: 16px;
     gap: 24px;
     position: relative;
     width: 100%;
-    max-width: 342px;
   }
 }
 .hero_desription .wrap_btn {
@@ -1013,7 +1022,8 @@ gap: 16px;
     width: 100% !important;
     max-width: 100% !important;
     z-index: 2;
-    height: 100%;
+    height: max-content;
+    border: 1px solid #ef3f23;
   }
 }
 .hero_desription .wrap_btn.show div {
@@ -1027,6 +1037,10 @@ gap: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 26px;
+}
+.hero_desription .wrap_btn .download_btn_shadow {
+  display: none;
+  border: 1px solid transparent;
 }
 @media screen and (max-width: 1000px) {
   .hero_desription .wrap_btn div {
@@ -1042,11 +1056,21 @@ gap: 16px;
     top: 0;
     left: 0;
     width: 100%;
-    border: 1px solid #ef3f23;
     transition: all 0.4s linear;
+    border: 1px solid #ef3f23;
+  }
+  .hero_desription .wrap_btn .download_btn_shadow {
+    display: block;
+    visibility: hidden;
+    border: 1px solid transparent;
   }
   .hero_desription .wrap_btn .consult_btn {
+    transition: all 0.4s linear;
+    max-height: 100%;
+  }
+  .hero_desription .wrap_btn.show .consult_btn {
     margin-left: auto;
+    height: 44px !important;
   }
 }
 .hero_desription .wrap_btn .download_btn {
@@ -1057,8 +1081,6 @@ gap: 16px;
 .hero_desription .wrap_btn .consult_btn {
   color: #ef3f23;
   border: 1px solid #ef3f23;
-  max-width: 167px;
-  height: 100%;
 }
 .hero .gallery {
   --size: 95px;
@@ -2076,6 +2098,7 @@ gap: 16px;
   font-weight: 500;
   line-height: 26px; /* 162.5% */
 }
+
 .success_project .projects .item .over_lay {
   position: absolute;
   top: 0;
@@ -2087,6 +2110,15 @@ gap: 16px;
     rgba(102, 102, 102, 0) 39.97%,
     rgba(0, 0, 0, 0.9) 80.34%
   );
+}
+@media screen and (max-width: 1000px) {
+  .success_project .projects .item .over_lay {
+    background: linear-gradient(
+      180deg,
+      rgba(102, 102, 102, 0) 6.97%,
+      rgba(0, 0, 0, 0.9) 80.34%
+    );
+  }
 }
 .success_project .projects .item .bg_img {
   position: absolute;
@@ -2243,6 +2275,7 @@ gap: 16px;
   width: 200px;
   transition: all 0.3s ease-in-out;
   transform: scale(1);
+  text-align: center;
 }
 .customers_top .content .btn:hover {
   transform: scale(1.1);

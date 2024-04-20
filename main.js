@@ -9,7 +9,7 @@ $(document).ready(function () {
 
   $(window).on("scroll", function () {
     var st = $(this).scrollTop();
-    if ($("dropdown-content-head").hasClass('show')) return
+    if ($("dropdown-content-head").hasClass("show")) return;
     if (st > lastScrollTop) {
       $(".header_sp").addClass("show");
       $("header").addClass("show");
@@ -102,17 +102,10 @@ $(document).ready(function () {
     });
   }
 
-  setTimeout(() => {
-    $("#hero_two").click();
-  }, 6000);
+  const heightTarget = $("#download_profile_btn").html();
+  $("#download_profile_btn_shadow").html(heightTarget);
 
-  setInterval(() => {
-    $("#hero_one").click();
 
-    setTimeout(function () {
-      $("#hero_two").click();
-    }, 6000);
-  }, 12000);
 
   $("#wrap_dot li").on("click", function () {
     $("#wrap_dot li").removeClass("active");
@@ -120,20 +113,25 @@ $(document).ready(function () {
     $(this).addClass("active");
   });
 
+
+
   $("#hero_two").on("click", function () {
+    $(".hero .hero_desription .wrap_btn").addClass("show");
     $(".hero video").css("opacity", 1);
     $(".hero .overlay_video").css("opacity", 1);
     $(".hero .hero_video_text").css("opacity", 1);
     if ($(window).width() > 1000) {
       $(".hero .hero_desription ").css("pointer-events", "none");
+      $(".hero .hero_video_text").css("pointer-events", "all");
+
       $(".hero .hero_desription").css("opacity", 0);
     }
     $(".hero .scroller_hero").css("opacity", 0);
-
-    $(".hero .hero_desription .wrap_btn").addClass("show");
   });
 
   $("#hero_one").on("click", function () {
+    $(".hero .hero_desription .wrap_btn").removeClass("show");
+    $("#consult_first_btn").css("height", $("#download_profile_btn_shadow").outerHeight(true))
     $(".hero video").css("opacity", 0);
     $(".hero .overlay_video").css("opacity", 0);
     $(".hero .hero_video_text").css("opacity", 0);
@@ -141,9 +139,10 @@ $(document).ready(function () {
     $(".hero").css("pointer-events", "all");
     if ($(window).width() > 1000) {
       $(".hero .hero_desription ").css("pointer-events", "all");
+      $(".hero .hero_video_text").css("pointer-events", "none");
+
       $(".hero .hero_desription").css("opacity", 1);
     }
-    $(".hero .hero_desription .wrap_btn").removeClass("show");
   });
 
   function addSlick() {
