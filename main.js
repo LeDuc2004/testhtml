@@ -105,17 +105,18 @@ $(document).ready(function () {
   const heightTarget = $("#download_profile_btn").html();
   $("#download_profile_btn_shadow").html(heightTarget);
 
-
-
   $("#wrap_dot li").on("click", function () {
     $("#wrap_dot li").removeClass("active");
 
     $(this).addClass("active");
   });
 
-
-
   $("#hero_two").on("click", function () {
+    $("#download_profile_btn a").attr(
+      "href",
+      "https://pre.miichisoft.com/miichisofts-ai-solution-japan-it-week-sodec-2024/"
+    );
+    $("#download_modal").css("display", "none");
     $(".hero .hero_desription .wrap_btn").addClass("show");
     $(".hero video").css("opacity", 1);
     $(".hero .overlay_video").css("opacity", 1);
@@ -130,8 +131,13 @@ $(document).ready(function () {
   });
 
   $("#hero_one").on("click", function () {
+    $("#download_profile_btn a").removeAttr("href");
+    $("#download_modal").css("display", "block").removeClass("show");
     $(".hero .hero_desription .wrap_btn").removeClass("show");
-    $("#consult_first_btn").css("height", $("#download_profile_btn_shadow").outerHeight(true))
+    $("#consult_first_btn").css(
+      "height",
+      $("#download_profile_btn_shadow").outerHeight(true)
+    );
     $(".hero video").css("opacity", 0);
     $(".hero .overlay_video").css("opacity", 0);
     $(".hero .hero_video_text").css("opacity", 0);
@@ -177,9 +183,13 @@ $(document).ready(function () {
   addSlick();
 
   $("#download_profile_btn").on("click", () => {
-    $("html, body").animate({ scrollTop: 0 }, "fast", () => {
-      onShowPopup("#download_modal");
-    });
+    if ($("#download_profile_btn a").attr("href")) {
+      return;
+    } else {
+      $("html, body").animate({ scrollTop: 0 }, "fast", () => {
+        onShowPopup("#download_modal");
+      });
+    }
   });
 
   $("#consult_first_btn").on("click", () => {
