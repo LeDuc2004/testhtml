@@ -126,12 +126,19 @@ $(document).ready(function () {
       $(".hero .hero_video_text").css("pointer-events", "all");
 
       $(".hero .hero_desription").css("opacity", 0);
+      $("#download_profile_btn a").html($("#see_more_btn").html());
+    }
+    if ($(window).width() < 1000) {
+      $("#download_profile_btn a").html($("#see_more_btn").html());
     }
     $(".hero .scroller_hero").css("opacity", 0);
   });
 
   $("#hero_one").on("click", function () {
     $("#download_profile_btn a").removeAttr("href");
+    if ($(window).width() < 1000) {
+      $("#download_profile_btn a").html($("#download_profile_btn_shadow a").html());
+    }
     $("#download_modal").css("display", "block").removeClass("show");
     $(".hero .hero_desription .wrap_btn").removeClass("show");
     $("#consult_first_btn").css(
@@ -165,16 +172,16 @@ $(document).ready(function () {
       slidesToShow: 3,
       slidesToScroll: 1,
       dots: true,
+      centerMode: true,
       autoplay: true,
       autoplaySpeed: 5000,
       responsive: [
         {
           breakpoint: 1000,
           settings: {
-            slidesToShow: 1.18,
+            slidesToShow: 1,
             slidesToScroll: 1,
             dots: true,
-            infinite: false,
           },
         },
       ],

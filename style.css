@@ -814,7 +814,7 @@ header .container .header_sevice .lang_switch_btn:hover .dropdown-content {
   line-height: 32px;
   max-width: 720px;
 }
-.hero .hero_video_text .see_more_btn {
+.hero .hero_video_text .see_more_btn a {
   width: 160px;
   padding: 16px 32px;
   color: white;
@@ -1080,7 +1080,7 @@ header .container .header_sevice .lang_switch_btn:hover .dropdown-content {
   background: #ef3f23;
   color: white;
 }
-.hero_desription .wrap_btn .download_btn a{
+.hero_desription .wrap_btn .download_btn a {
   color: white;
 }
 .hero_desription .wrap_btn .consult_btn {
@@ -2309,7 +2309,6 @@ header .container .header_sevice .lang_switch_btn:hover .dropdown-content {
 @media screen and (max-width: 1000px) {
   .customers_voices {
     padding: 24px 0;
-    height: 667px;
   }
 }
 .customers_voices .wrapper {
@@ -2627,7 +2626,7 @@ header .container .header_sevice .lang_switch_btn:hover .dropdown-content {
 }
 @media screen and (max-width: 1000px) {
   .customer_success_stories {
-    padding: 24px;
+    padding: 24px 0;
     padding-bottom: 46px;
   }
 }
@@ -2641,7 +2640,13 @@ header .container .header_sevice .lang_switch_btn:hover .dropdown-content {
   display: flex;
   overflow: hidden;
 }
+@media screen and (max-width: 1000px) {
+  .customer_success_stories .warrper .customer-items .slick-list{
+    padding-left: 20px !important;
+    padding-right: 80px !important;
 
+  }
+}
 .customer_success_stories h1 {
   color: var(--Color-Text-color, #111827);
   font-family: "Noto Sans";
@@ -2675,6 +2680,7 @@ header .container .header_sevice .lang_switch_btn:hover .dropdown-content {
 @media screen and (min-width: 1000px) {
   .customer_success_stories .item {
     min-width: 300px;
+    margin-right: 18px;
   }
 }
 @media screen and (max-width: 1000px) {
